@@ -1,0 +1,158 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=0.9in]{geometry}
+\usepackage{kotex}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{lmodern}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[sc,osf]{mathpazo}
+
+\def\myname{Chiwan Park}
+\def\myphone{+82-10-8518-3832}
+\def\myaddress{Global Open Frontier Lab\\
+Nuritkum Square Business Tower \#301\\
+396 Worldcup buk-ro\\
+Mapo-gu Seoul, Republic of Korea 121-270}
+\def\myemail{chiwanpark@icloud.com}
+\def\myhomepage{http://chiwanpark.com}
+
+\hypersetup{%
+  pdftitle={Curriculum Vitae},
+  pdfauthor={\myname},
+  pdfsubject={},
+  pdfkeywords={\myname, Curriculum Vitae},
+  plainpages=false,
+  bookmarksnumbered=true,
+  pdfstartview={FitV},
+  colorlinks={false},
+  pdfborder={0 0 0},
+  pdfcreator={LuaTeX}
+}
+
+\pagestyle{myheadings}
+\markright{\myname}
+\thispagestyle{empty}
+
+\usepackage{sectsty}
+\sectionfont{\rmfamily\mdseries\Large}
+\subsectionfont{\rmfamily\mdseries\itshape\large}
+
+\setlength\parindent{0em}
+
+\renewenvironment{itemize}{
+  \begin{list}{}{
+    \setlength{\leftmargin}{1.5em}
+    \setlength{\itemsep}{0.5em}
+    \setlength{\parskip}{0pt}
+    \setlength{\parsep}{0.25em}
+  }
+}{
+  \end{list}
+}
+\setlist[enumerate]{itemsep=0.25em}
+
+\begin{document}
+
+% HEADER
+\par{\Huge \textsc{\myname}}
+
+\bigskip
+
+\begin{minipage}[t]{0.495\textwidth}
+  \myaddress
+\end{minipage}
+\begin{minipage}[t]{0.495\textwidth}
+  Phone: \myphone \\
+  Email: \href{mailto:\myemail}{\tt \myemail} \\
+  Homepage: \href{\myhomepage}{\tt \myhomepage}
+\end{minipage}
+
+% EDUCATION
+\section*{Education}
+\begin{itemize}
+  \item \textbf{Bachelor of Science} in Earth System Sciences\hfill\textsc{Mar. 2010 -- Feb. 2016} (Expected)\\
+        \textbf{Bachelor of Science} in Computer Science (double major)\\
+        Yonsei University
+\end{itemize}
+
+% HONORS AND AWARDS
+\section*{Honors and Awards}
+\subsection*{Scholarship}
+\begin{itemize}
+  \item \textbf{Horor Scholarship}\hfill\textsc{Feb. 2015}\\
+        Yonsei University
+  \item \textbf{Sinchon Market Supporters Scholarship}\hfill\textsc{Nov. 2014}\\
+        Yonsei University
+  \item \textbf{Scholarship for Basic Human Resources of Geoscience}\hfill\textsc{Sep. 2012}\\
+        Ministry of Knowledge and Education of Korea
+\end{itemize}
+\subsection*{Fellowship}
+\begin{itemize}
+  \item \textbf{Global Open Frontier Program}\hfill\textsc{Dec. 2013 -- Dec. 2015}\\
+        National IT Industry Promotion Agency of Korea
+  \item \textbf{Support for Open Source Software Development}\hfill\textsc{Jul. 2013 -- Nov. 2013}\\
+        National IT Industry Promotion Agency of Korea
+\end{itemize}
+\subsection*{Awards}
+\begin{itemize}
+  \item \textbf{3rd Prize} of Korea Big Data Analysis Contest 2013\hfill\textsc{Nov. 2013}\\
+        National Information Society Agency of Korea
+  \item \textbf{3rd Prize} of SK Telecom Mobile Web Application Contest 2013\hfill\textsc{Dec. 2013}\\
+        SK Telecom
+\end{itemize}
+
+\section*{Research Interests}
+\begin{itemize}
+  \item Large-scale Graph Processing and Scalable Machine Learning
+\end{itemize}
+
+% WORK EXPERIENCE
+\section*{Work Experience}
+\begin{itemize}
+  \item \textbf{Software Engineer (Part-time)} in Anbado Video\hfill\textsc{Jan. 2014 -- Apr. 2015}\\
+        Anbado Video is a startup company creating new experience of video. I developed a back-end of SNS service with videos called modac.TV. I used Python, Flask, SQLAlchemy, PostgreSQL and Google Cloud Platform. I also performed data analysis using Apache Pig.
+  \item \textbf{Software Engineer (Part-time)} in Cloudine\hfill\textsc{Jul. 2013 -- Dec. 2013}\\
+        Cloudine is a company developing data processing platform and consulting set-up of infrastructure for large-scale data processing. I tested performance of Apache Mahout and developed near real-time recommendation service based on Apache Mahout, mongoDB and Spring Framework.
+\end{itemize}
+
+% EXTRA ACTIVITY
+\section*{Extra Activity}
+\begin{itemize}
+  \item \textbf{3rd Trainee} of Software Maestro\hfill\textsc{Jul. 2012 -- Jun. 2013}\\
+        Software Maestro is a greatest mentoring program to train excellent software programmers in Korea. This program is backed by Ministry of Science, ICT and Future Planning. I learned many ideas of MapReduce programming model and Hadoop ecosystem such as HDFS, Hadoop MapReduce, Pig, and Hive. I developed a search engine prototype using TF-IDF weighting factor based on MapReduce programming model.
+  \item \textbf{Committer} of Apache Flink\hfill\textsc{Nov. 2014 -- Present}\\
+        Apache Flink is an open-source platform for scalable batch and stream data processing. I have contributed to Apache Flink since Nov. 2014. I was invited as a committer of Apache Flink in Jun. 2015. I have learned a lot of basic concepts about distributed processing and scalable machine learning algorithm from this project. I use Java and Scala to contribute to this project.
+  \item \textbf{Contributor} of Flamingo Project\hfill\textsc{Jul. 2013 -- Dec. 2014}\\
+        Flamingo Project is an open-source software for providing full control of Hadoop Ecosystem in web-based user interface. I have participated since Jul. 2013. I implemented Apache Hive and Apache Sqoop interface of Flamingo 1. I use Java and Javascript to contribute to this project.
+\end{itemize}
+
+% CONFERENCE PRESENTATIONS
+\section*{Presentations}
+\begin{itemize}
+  \item \href{http://j.mp/cjkossforum-2015-park}{\textit{Lessons Learned from Open-source Activities}}\hfill\textsc{Nov. 2015}\\
+        The 14th Northeast Asia OSS Promotion Forum, Tokyo, Japan.
+  \item \href{http://j.mp/ots-2014-park}{\textit{쓰기 쉬운 Hadoop 기반 빅데이터 플랫폼 아키텍처 및 활용 방안}}\hfill\textsc{Mar. 2014}\\
+        Open Technet Summit 2014, Seoul, Korea.
+\end{itemize}
+
+% TECHNICAL SKILLS
+\section*{Technical Skills}
+\subsection*{Programming Languages}
+\begin{itemize}
+  \setlength{\itemsep}{0.25em}
+  \item Java, Python (Advanced)
+  \item Scala, C, C++, Javascript (Intermediate)
+  \item \LaTeX, MATLAB, Fortran (Experienced)
+\end{itemize}
+\subsection*{Databases and Data Processing Platforms}
+\begin{itemize}
+  \setlength{\itemsep}{0.25em}
+  \item MySQL, PostgreSQL, Apache Hadoop, Apache Flink (Intermediate)
+  \item mongoDB, Redis (Experienced)
+\end{itemize}
+
+\bigskip
+{\small Last updated: \today}
+
+\end{document}
