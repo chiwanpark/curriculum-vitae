@@ -14,10 +14,12 @@ install:
 
 before_script:
   - mkdir _build
+  - echo "OAUTH_ACCESS_TOKEN=${OAUTH_ACCESS_TOKEN}" > ~/.dropbox_uploader
 
 script:
   - docker run --rm -it -v $(pwd):/var/texlive harshjv/texlive-2015 lualatex --output-directory /var/texlive/_build curriculum-vitae.tex
 
 after_success:
-  - ./dropbox.sh -f ./dummy-dropbox-config upload _build/curriculum-vitae.pdf curriculum-vitae-latest.pdf
-  - ./dropbox.sh -f ./dummy-dropbox-config upload _build/curriculum-vitae.pdf curriculum-vitae-b${TRAVIS_BUILD_NUMBER}.pdf
+  - ./dropbox.sh upload _build/curriculum-vitae.pdf curriculum-vitae-latest.pdf
+  - ./dropbox.sh upload _build/curriculum-vitae.pdf curriculum-vitae-b${TRAVIS_BUILD_NUMBER}.pdf
+
