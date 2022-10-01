@@ -1,0 +1,31 @@
+name: Build curriculum vitae
+on:
+  push:
+    branches:
+    - master
+jobs:
+  build_cv:
+    name: Build curriculum vitae
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Create build directory
+      run: mkdir -p ${{ github.workspace }}/_build
+    - name: Prepare uploader script for Dropbox
+      run: >
+        sudo apt-get install -y curl &&
+        curl "https://raw.githubusercontent.com/andreafabrizi/Dropbox-Uploader/master/dropbox_uploader.sh" -o dropbox.sh &&
+        chmod +x dropbox.sh &&
+        echo "CONFIGFILE_VERSION=2.0" > ~/.dropbox_uploader &&
+        echo "OAUTH_APP_KEY=${{ secrets.DROPBOX_OAUTH_APP_KEY }}" >> ~/.dropbox_uploader &&
+        echo "OAUTH_APP_SECRET=${{ secrets.DROPBOX_OAUTH_APP_SECRET }}" >> ~/.dropbox_uploader &&
+        echo "OAUTH_REFRESH_TOKEN=${{ secrets.DROPBOX_OAUTH_REFRESH_TOKEN }}" >> ~/.dropbox_uploader
+    - name: Run LaTeX using docker
+      run: >
+        docker run --rm -v ${{ github.workspace }}:/var/texlive harshjv/texlive-2015
+        lualatex --output-directory /var/texlive/_build curriculum-vitae.tex
+    - name: Upload curriculum vitae to Dropbox
+      run: >
+        ./dropbox.sh upload _build/curriculum-vitae.pdf curriculum-vitae-b${{ github.run_number }}g.pdf &&
+        ./dropbox.sh upload _build/curriculum-vitae.pdf curriculum-vitae-latest.pdf
