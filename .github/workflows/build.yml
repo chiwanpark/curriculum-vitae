@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
     - name: Create build directory
       run: mkdir -p ${{ github.workspace }}/_build
     - name: Prepare uploader script for Dropbox
@@ -22,10 +22,13 @@ jobs:
         echo "OAUTH_APP_SECRET=${{ secrets.DROPBOX_OAUTH_APP_SECRET }}" >> ~/.dropbox_uploader &&
         echo "OAUTH_REFRESH_TOKEN=${{ secrets.DROPBOX_OAUTH_REFRESH_TOKEN }}" >> ~/.dropbox_uploader
     - name: Run LaTeX using docker
-      run: >
-        docker run --rm -v ${{ github.workspace }}:/var/texlive harshjv/texlive-2015
-        lualatex --output-directory /var/texlive/_build curriculum-vitae.tex
+      uses: xu-cheng/latex-action@v3
+      with:
+        root_file: curriculum-vitae.tex
+        compiler: latexmk
+        latexmk_use_lualatex: true
+        args: -output-directory=./_build -pdf -file-line-error -interaction=nonstopmode
     - name: Upload curriculum vitae to Dropbox
       run: >
-        ./dropbox.sh upload _build/curriculum-vitae.pdf curriculum-vitae-b${{ github.run_number }}g.pdf &&
-        ./dropbox.sh upload _build/curriculum-vitae.pdf curriculum-vitae-latest.pdf
+        ./dropbox.sh -d upload _build/curriculum-vitae.pdf curriculum-vitae-b${{ github.run_number }}g.pdf &&
+        ./dropbox.sh -d upload _build/curriculum-vitae.pdf curriculum-vitae-latest.pdf
