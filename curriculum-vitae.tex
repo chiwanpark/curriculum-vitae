@@ -10,8 +10,14 @@
 \usepackage[sc,osf]{mathpazo}
 \usepackage{libertine}
 \usepackage{fontawesome5}
+\usepackage{booktabs}
 
-\setmainhangulfont{NanumMyeongjo}
+\setmainhangulfont{NanumMyeongjo}[
+    Path={./fonts/},
+    Extension={.ttf},
+    UprightFont=*,
+    BoldFont=NanumMyeongjoBold,
+]
 \setmonofont[LetterSpace=-5.0,Scale=0.75]{Libertinus Mono}
 
 \def\myname{Chiwan Park}
@@ -36,7 +42,7 @@
 \thispagestyle{empty}
 
 \usepackage{sectsty}
-\sectionfont{\rmfamily\mdseries\Large}
+\sectionfont{\rmfamily\bfseries\Large}
 \subsectionfont{\rmfamily\mdseries\itshape\large}
 
 \setlength{\parskip}{-0.2em}
@@ -150,16 +156,6 @@
         Open-source Software Developer Center Conference, Seoul, Korea
   \item \href{http://j.mp/cjkossforum-2015-park}{\textit{Lessons Learned from Open-source Activities}}\hfill\textsc{Nov. 2015}\\
         The 14th Northeast Asia OSS Promotion Forum, Tokyo, Japan
-\end{itemize}
-
-% REFERENCES
-\section*{References}
-\begin{itemize}
-  \item \textbf{Prof. U Kang}\\
-        Department of Computer Science and Engineering\\
-        Seoul National University\\
-        Seoul, Korea\\
-        \href{mailto:ukang@snu.ac.kr}{ukang@snu.ac.kr}
 \end{itemize}
 
 \bigskip
