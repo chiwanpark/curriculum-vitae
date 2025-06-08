@@ -1,5 +1,6 @@
 %! TeX program = lualatex
 \documentclass[11pt,a4paper]{article}
+\usepackage[dvipsnames]{xcolor}
 \usepackage[margin=0.8in]{geometry}
 \usepackage{kotex}
 \usepackage{hyperref}
@@ -32,7 +33,8 @@
   plainpages=false,
   bookmarksnumbered=true,
   pdfstartview={FitV},
-  colorlinks={false},
+  colorlinks={true},
+  urlcolor={NavyBlue},
   pdfborder={0 0 0},
   pdfcreator={LuaTeX}
 }
@@ -42,7 +44,7 @@
 \thispagestyle{empty}
 
 \usepackage{sectsty}
-\sectionfont{\rmfamily\bfseries\Large\sectionrule{0ex}{0pt}{-1ex}{1pt}}
+\sectionfont{\rmfamily\bfseries\Large\sectionrule{0ex}{0pt}{-1ex}{0.5pt}}
 
 \setlength{\parskip}{-0.2em}
 \setlength\parindent{0em}
@@ -58,7 +60,7 @@
 }{
   \end{list}
 }
-\setlist[enumerate]{itemsep=0.25em}
+\setlist[itemize]{leftmargin=1em}
 \let\orighref\href
 \renewcommand{\href}[2]{\orighref{#1}{#2\ {\scriptsize\faIcon{external-link-alt}}}}
 
@@ -89,7 +91,7 @@
 \begin{entry}
   \item \textbf{Master of Science}, Computer Science and Engineering\hfill\textsc{Mar. 2016 -- Feb. 2018}\\
         Seoul National University\\
-        Thesis: \href{https://s-space.snu.ac.kr/bitstream/10371/141560/1/000000151119.pdf}{\textit{Pre-partitioned Matrix-Vector Multiplication for Scalable Graph Mining}}\\
+        Thesis: \href{https://s-space.snu.ac.kr/bitstream/10371/141560/1/000000151119.pdf}{Pre-partitioned Matrix-Vector Multiplication for Scalable Graph Mining}\\
         Advisor: U Kang
   \item \textbf{Bachelor of Science}, Earth System Sciences\hfill\textsc{Mar. 2010 -- Feb. 2016}\\
         \textbf{Bachelor of Engineering}, Computer Science (Double Major)\\
@@ -102,38 +104,45 @@
   \setlength\itemsep{0.1em}
   \item \textbf{Applied Machine Learning Engineer (Full-time)} at Kakao\hfill\textsc{Apr. 2018 -- Present}
   \begin{itemize}
-    \setlength\itemsep{0.05em}
-    \item Implemented a versatile LLM inference system capable of leveraging multiple backend engines, including vLLM, SGLang, and TensorRT-LLM.
-    \item Designed a language model fine-tuning techique specifically for multi-agent scenarios, enabling running multiple distinct agents from a single base language model.
-    \item Led a research unit of 10+ members, responsible for developing and maintaining recommender systems across various Kakao services (Oct. 2019 - Dec. 2023).
-    \item Built and maintained recommender systems for several Kakao services, including Daum, KakaoTalk Gift, Kakao Webtoon, ShoppingHow, and Piccoma.
+    \item Involved in building \href{https://mate.kakao.com/}{AI Mate}, a conversational agent designed to deliver personalized recommendations and assistance across various Kakao services.
+    \begin{itemize}
+      \item Implemented a versatile LLM inference system capable of leveraging multiple backend engines, including vLLM, SGLang, and TensorRT-LLM.
+      \item Designed and implemented a language model fine-tuning technique with multiple system prompts, crucially ensuring they function without interfering with each other.
+      \item Published our approach as a paper at \href{https://arxiv.org/abs/2505.23006}{ACL 2025 (Industry Track)}
+    \end{itemize}
+    \item Built and maintained machine learning applications for several Kakao services, including Daum, Kakao Webtoon, KakaoTalk Gift, ShoppingHow, and Piccoma.
+    \item Led a research unit of 10+ members, responsible for developing and maintaining machine learning applications across various Kakao services (\textsc{Oct}. 2019 - \textsc{Dec}. 2023).
+    \begin{itemize}
+      \item Our research results showed significant improvements, which we presented at several conferences including \href{https://if.kakao.com/2020/session/125}{if(kakao) 2020}, \href{https://if.kakao.com/2021/session/27}{if(kakao) 2021}, \href{https://if.kakao.com/2022/session/8}{if(kakao)dev 2022}, and \href{https://speakerdeck.com/chiwanpark/challenges-in-real-world-recommender-systems}{KCC 2022}.
+      \item Furthermore, our members published several papers in multiple conferences, including \href{https://dl.acm.org/doi/10.1145/3556702.3556851}{RecSys'22 Challenge}, \href{https://amazonkddcup.github.io/papers/0620.pdf}{KDD Cup'22}, and \href{https://dl.acm.org/doi/10.1145/3539618.3591934}{SIGIR'23}.
+    \end{itemize}
   \end{itemize}
 \end{entry}
 
 % PUBLICATIONS
 \section*{Publications}
 \begin{entry}
-  \item \href{https://arxiv.org/abs/2505.23006}{\textit{A Practical Approach for Building Production-Grade Conversational Agents with Workflow Graphs}}\\
-  \textbf{Chiwan Park*}, Wonjun Jang*, Daeryong Kim*, Aelim Ahn, Kichang Yang, Woosung Hwang, Jihyeon Roh, Hyerin Park, Hyosun Wang, Min Seok Kim, and Jihoon Kang\\
+  \item \textbf{A Practical Approach for Building Production-Grade Conversational Agents with Workflow Graphs}\\
+  \underline{Chiwan Park*}, Wonjun Jang*, Daeryong Kim*, Aelim Ahn, Kichang Yang, Woosung Hwang, Jihyeon Roh, Hyerin Park, Hyosun Wang, Min Seok Kim, and Jihoon Kang\\
   The 63rd Annual Meeting of the Association for Computational Linguistics (ACL), 2025 (Industry Track)
-  \item \href{https://dl.acm.org/doi/10.1145/3556702.3556851}{\textit{Simple and Efficient Recommendation Strategy for Warm/Cold Sessions for RecSys Challenge 2022}}\\
-  Hyunsung Lee, Sungwook Yoo, Andrew Yang, Wonjun Jang and \textbf{Chiwan Park}\\
+  \item \textbf{Simple and Efficient Recommendation Strategy for Warm/Cold Sessions for RecSys Challenge 2022}\\
+  Hyunsung Lee, Sungwook Yoo, Andrew Yang, Wonjun Jang and \underline{Chiwan Park}\\
   RecSys Challenge Workshop at the 16th ACM Conference on Recommender Systems (RecSys), 2022
-  \item \href{https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0227032}{\textit{FlexGraph: Flexible partitioning and storage for scalable graph mining}}\\
-  \textbf{Chiwan Park}, Ha-Myung Park and U Kang\\
+  \item \textbf{FlexGraph: Flexible partitioning and storage for scalable graph mining}\\
+  \underline{Chiwan Park}, Ha-Myung Park and U Kang\\
   PLoS ONE 15(1): e0227032
-  \item \href{https://ojs.aaai.org/index.php/AAAI/article/view/11372}{\textit{PegasusN: A Scalable and Versatile Graph Mining System}}\\
-  Ha-Myung Park, \textbf{Chiwan Park}, and U Kang\\
+  \item \textbf{PegasusN: A Scalable and Versatile Graph Mining System}\\
+  Ha-Myung Park, \underline{Chiwan Park}, and U Kang\\
   The 32nd AAAI Conference on Artificial Intelligence (AAAI) 2018 (Demo Paper)
-  \item \href{https://datalab.snu.ac.kr/dslashburn/dslashburn.pdf}{\textit{A Distributed Vertex Rearrangement Algorithm for Compressing and Mining Big Graphs}}\\
-  Namyong Park, \textbf{Chiwan Park}, and U Kang\\
+  \item \textbf{A Distributed Vertex Rearrangement Algorithm for Compressing and Mining Big Graphs}\\
+  Namyong Park, \underline{Chiwan Park}, and U Kang\\
   Journal of KIISE (Domestic), Vol. 43, No. 10, pp. 1131-1143, 2016.
 \end{entry}
 
 % PATENTS
 \section*{Patents}
 \begin{entry}
-  \item U Kang, \textbf{Chiwan Park}, Ha-Myung Park, Minji Yoon, \textit{"Method and Apparatus for Scalable Graph Mining using Graph Pre-partitioning"}, Korean patent number: 10-1990735 (filed on Mar. 30, 2018, and registered on Jun. 12, 2019).
+  \item U Kang, \underline{Chiwan Park}, Ha-Myung Park, Minji Yoon, \textbf{"Method and Apparatus for Scalable Graph Mining using Graph Pre-partitioning"}, Korean patent number: 10-1990735 (filed on Mar. 30, 2018, and registered on Jun. 12, 2019).
 \end{entry}
 
 % TEACHING EXPERIENCES
@@ -148,15 +157,15 @@
 % TALKS
 \section*{Talks}
 \begin{entry}
-  \item \href{https://speakerdeck.com/chiwanpark/challenges-in-real-world-recommender-systems}{\textit{Challenges in Real-world Recommender Systems}}\hfill\textsc{Jun. 2022}\\
+  \item \href{https://speakerdeck.com/chiwanpark/challenges-in-real-world-recommender-systems}{\textbf{Challenges in Real-world Recommender Systems}}\hfill\textsc{Jun. 2022}\\
         KCC 2022, Jeju, Korea
-  \item \href{http://bit.ly/chiwanpark-ifkakao2019-new}{\textit{상품 카탈로그 자동 생성 ML 모델 소개}}\hfill\textsc{Aug. 2019}\\
+  \item \href{http://bit.ly/chiwanpark-ifkakao2019-new}{\textbf{상품 카탈로그 자동 생성 ML 모델 소개}}\hfill\textsc{Aug. 2019}\\
         if kakao(dev) 2019, Seoul, Korea
-  \item \href{http://j.mp/d2-campus-seminar-4th-park}{\textit{학교에선 알려주지 않는 오픈 소스 이야기}}\hfill\textsc{Feb. 2016}\\
+  \item \href{http://j.mp/d2-campus-seminar-4th-park}{\textbf{학교에선 알려주지 않는 오픈 소스 이야기}}\hfill\textsc{Feb. 2016}\\
         NAVER 4th D2 Campus Seminar, Seongnam, Korea
-  \item \href{http://j.mp/ossdevconf-2015-park}{\textit{Introduction to Apache Flink}}\hfill\textsc{Dec. 2015}\\
+  \item \href{http://j.mp/ossdevconf-2015-park}{\textbf{Introduction to Apache Flink}}\hfill\textsc{Dec. 2015}\\
         Open-source Software Developer Center Conference, Seoul, Korea
-  \item \href{http://j.mp/cjkossforum-2015-park}{\textit{Lessons Learned from Open-source Activities}}\hfill\textsc{Nov. 2015}\\
+  \item \href{http://j.mp/cjkossforum-2015-park}{\textbf{Lessons Learned from Open-source Activities}}\hfill\textsc{Nov. 2015}\\
         The 14th Northeast Asia OSS Promotion Forum, Tokyo, Japan
 \end{entry}
 
