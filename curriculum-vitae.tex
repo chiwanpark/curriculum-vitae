@@ -42,16 +42,15 @@
 \thispagestyle{empty}
 
 \usepackage{sectsty}
-\sectionfont{\rmfamily\bfseries\Large}
-\subsectionfont{\rmfamily\mdseries\itshape\large}
+\sectionfont{\rmfamily\bfseries\Large\sectionrule{0ex}{0pt}{-1ex}{1pt}}
 
 \setlength{\parskip}{-0.2em}
 \setlength\parindent{0em}
 \titlespacing{\section}{0pt}{\parskip}{-\parskip}
 
-\renewenvironment{itemize}{
+\newenvironment{entry}{
   \begin{list}{}{
-    \setlength{\leftmargin}{1em}
+    \setlength{\leftmargin}{0em}
     \setlength{\itemsep}{0.25em}
     \setlength{\parskip}{0pt}
     \setlength{\parsep}{0.25em}
@@ -60,6 +59,8 @@
   \end{list}
 }
 \setlist[enumerate]{itemsep=0.25em}
+\let\orighref\href
+\renewcommand{\href}[2]{\orighref{#1}{#2\ {\scriptsize\faIcon{external-link-alt}}}}
 
 \begin{document}
 
@@ -72,20 +73,20 @@
 \hfill
 \begin{minipage}[t]{0.6\textwidth}
   \vspace{0pt}
-  Applied Machine Learning Engineer at Kakao Corporation\\
-  {\scriptsize\faIcon{envelope}}\ \href{mailto:\myemail}{\myemail}\ \ {\scriptsize\faIcon{globe-americas}}\ \href{\myhomepage}{\myhomepage}
+  Applied Machine Learning Engineer at Kakao\\
+  {\scriptsize\faIcon{envelope}}\ \orighref{mailto:\myemail}{\myemail}\ \ {\scriptsize\faIcon{globe-americas}}\ \orighref{\myhomepage}{\myhomepage}
 \end{minipage}
 
 % RESEARCH INTERESTS
 \section*{Research Interests}
-\begin{itemize}
+\begin{entry}
   \item \textbf{Conversational Agents:} building production-grade conversational agents that can understand and respond to user queries in natural language, leveraging workflow graphs and large language models.
   \item \textbf{Machine Learning on Graphs:} designing algorithms for analyzing and discovering useful information from real-world graphs by exploiting properties of the graphs.
-\end{itemize}
+\end{entry}
 
 % EDUCATION
 \section*{Education}
-\begin{itemize}
+\begin{entry}
   \item \textbf{Master of Science}, Computer Science and Engineering\hfill\textsc{Mar. 2016 -- Feb. 2018}\\
         Seoul National University\\
         Thesis: Pre-partitioned Matrix-Vector Multiplication for Scalable Graph Mining\\
@@ -93,24 +94,25 @@
   \item \textbf{Bachelor of Science}, Earth System Sciences\hfill\textsc{Mar. 2010 -- Feb. 2016}\\
         \textbf{Bachelor of Engineering}, Computer Science (Double Major)\\
         Yonsei University
-\end{itemize}
+\end{entry}
 
 % WORK EXPERIENCES
 \section*{Work Experiences}
-\begin{itemize}
+\begin{entry}
   \setlength\itemsep{0.1em}
   \item \textbf{Applied Machine Learning Engineer (Full-time)} at Kakao\hfill\textsc{Apr. 2018 -- Present}
-  \begin{enumerate}
+  \begin{itemize}
+    \setlength\itemsep{0.05em}
     \item Implemented a versatile LLM inference system capable of leveraging multiple backend engines, including vLLM, SGLang, and TensorRT-LLM.
     \item Designed a language model fine-tuning techique specifically for multi-agent scenarios, enabling running multiple distinct agents from a single base language model.
     \item Led a research unit of 10+ members, responsible for developing and maintaining recommender systems across various Kakao services (Oct. 2019 - Dec. 2023).
     \item Built and maintained personalized recommender systems for several Kakao services, including Daum, KakaoTalk Gift, Kakao Webtook, and Piccoma.
-  \end{enumerate}
-\end{itemize}
+  \end{itemize}
+\end{entry}
 
 % PUBLICATIONS
 \section*{Publications}
-\begin{itemize}
+\begin{entry}
   \item \textit{A Practical Approach for Building Production-Grade Conversational Agents with Workflow Graphs}\\
   \textbf{Chiwan Park*}, Wonjun Jang*, Daeryong Kim*, Aelim Ahn, Kichang Yang, Woosung Hwang, Jihyeon Roh, Hyerin Park, Hyosun Wang, Min Seok Kim, and Jihoon Kang\\
   The 63rd Annual Meeting of the Association for Computational Linguistics (ACL), 2025 (Industry Track)
@@ -126,26 +128,26 @@
   \item \textit{A Distributed Vertex Rearrangement Algorithm for Compressing and Mining Big Graphs}\\
   Namyong Park, \textbf{Chiwan Park}, and U Kang\\
   Journal of KIISE (Domestic), Vol. 43, No. 10, pp. 1131-1143, 2016.
-\end{itemize}
+\end{entry}
 
 % PATENTS
 \section*{Patents}
-\begin{itemize}
+\begin{entry}
   \item U Kang, \textbf{Chiwan Park}, Ha-Myung Park, Minji Yoon, \textit{"Method and Apparatus for Scalable Graph Mining using Graph Pre-partitioning"}, Korean patent number: 10-1990735 (filed on Mar. 30, 2018, and registered on Jun. 12, 2019).
-\end{itemize}
+\end{entry}
 
 % TEACHING EXPERIENCES
 \section*{Teaching Experiences}
-\begin{itemize}
+\begin{entry}
   \setlength\itemsep{0.1em}
   \item \textbf{Teaching Assistant}, Basic Math for Big Data at SNU BDI Academy\hfill\textsc{Summer 2017}
   \item \textbf{Teaching Assistant}, M1522.001400 Introduction to Data Mining at SNU\hfill\textsc{Spring 2017}
   \item \textbf{Teaching Assistant}, M1522.000900 Data Structures at SNU\hfill\textsc{Fall 2016}
-\end{itemize}
+\end{entry}
 
 % TALKS
 \section*{Talks}
-\begin{itemize}
+\begin{entry}
   \item \href{https://speakerdeck.com/chiwanpark/challenges-in-real-world-recommender-systems}{\textit{Challenges in Real-world Recommender Systems}}\hfill\textsc{Jun. 2022}\\
         KCC 2022, Jeju, Korea
   \item \href{http://bit.ly/chiwanpark-ifkakao2019-new}{\textit{상품 카탈로그 자동 생성 ML 모델 소개}}\hfill\textsc{Aug. 2019}\\
@@ -156,7 +158,7 @@
         Open-source Software Developer Center Conference, Seoul, Korea
   \item \href{http://j.mp/cjkossforum-2015-park}{\textit{Lessons Learned from Open-source Activities}}\hfill\textsc{Nov. 2015}\\
         The 14th Northeast Asia OSS Promotion Forum, Tokyo, Japan
-\end{itemize}
+\end{entry}
 
 \bigskip
 {\small Last updated: \today}
